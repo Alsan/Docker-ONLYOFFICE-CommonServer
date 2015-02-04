@@ -1,15 +1,21 @@
 ## What is ONLYOFFICE Common Server? ##
 
-
 ONLYOFFICE is a business service that resolves collaboration issues for both small medium-sized teams. Available in more than 20 languages ONLYOFFICE increases the overall performance of any team no matter how remote the members are located. The platform allows for optimization of your business processes from lead generation to order fulfillment. Combining a versatile set of tools ONLYOFFICE helps entities in any field from retail sales and to industrial engineering and banking. Broad access rights settings make ONLYOFFICE an asset to any executive striving for business excellence.
+
+## Supported Docker versions ##
+
+This image is officially supported on Docker version 1.4.1.
 
 ## How to use this image ##
 
-    docker run -i -t -d -p 80:80 ascensiosystemsia/onlyoffice-commonserver
+The Docker image is provided fully functional and ready to use (additional setup is only required if you plan to use HTTPS, please see sections below on how to do that). To run the image the latest version of Docker must be installed and the following command needs to be executed:
 
-	
+    sudo docker run -i -t -d -p 80:80 ascensiosystemsia/onlyoffice-commonserver
+
 #### Running the image using HTTPS 
-    
+
+The following command is used to rung the image using HTTPS:
+
 	sudo docker run -i -t -d -p 80:80  -p 443:443 -v /opt/onlyoffice/Data:/var/www/onlyoffice/Data  ascensiosystemsia/onlyoffice-commonserver
 
 Please note, that in case you run the image using HTTPS you need to create and install the following files:
@@ -18,14 +24,6 @@ Please note, that in case you run the image using HTTPS you need to create and i
 	/opt/onlyoffice/Data/certs/onlyoffice.crt
 
 See the sections below to find out how to do that.
-
-## Supported Docker versions ##
-
-This image is officially supported on Docker version 1.4.1.
-
-## User Feedback ##
-
-If you have any problems with or questions about this image, please contact us through a [dev.onlyoffice.org][1].
 
 ## HTTPS
 
@@ -102,5 +100,8 @@ Below is the complete list of parameters that can be set using environment varia
 - **SSL_DHPARAM_PATH**: The path to the Diffie-Hellman parameter. Defaults to `/var/www/onlyoffice/Data/certs/dhparam.pem`.
 - **SSL_VERIFY_CLIENT**: Enable verification of client certificates using the `CA_CERTIFICATES_PATH` file. Defaults to `false`
 
+## User Feedback ##
+
+If you have any problems with or questions about this image, please contact us through a [dev.onlyoffice.org][1].
 
   [1]: http://dev.onlyoffice.org
